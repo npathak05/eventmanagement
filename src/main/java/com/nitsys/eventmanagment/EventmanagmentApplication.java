@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.nitsys.controllers")
+@ComponentScan({"com.nitsys.controllers","com.nitsys.service"})
 public class EventmanagmentApplication {
 
 	public static void main(String[] args) {

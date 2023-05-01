@@ -3,6 +3,7 @@ package com.nitsys.controllers;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nitsys.dto.Event;
 import com.nitsys.dto.Product;
+import com.nitsys.service.InventoryService;
 
 import lombok.extern.apachecommons.CommonsLog;
 import lombok.extern.java.Log;
@@ -28,6 +30,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EventController {
 	
+	@Autowired
+	InventoryService inventoryService;
 	
 
 	@GetMapping("/event")
@@ -52,10 +56,13 @@ public class EventController {
 		return "Hi Welcome";
 	}
 	
-	/*
-	 * @GetMapping("/product") public List<Product> () {
-	 * 
-	 * }
-	 */
+	
+	
+	  @GetMapping("/product") 
+	  public List<Product> getAllProduct() {
+	               return inventoryService.getAllProduct();
+	  }
+	 
+	 
 
 }
